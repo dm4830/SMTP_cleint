@@ -25,7 +25,7 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
    recv1 = clientSocket.recv(1024).decode()
    #print(recv1)
    #if recv1[:3] != '250':
-    #   print('250 reply not received from server.')
+   #print('250 reply not received from server.')
    # Send MAIL FROM command and print server response.
    # Fill in start
 
@@ -47,7 +47,7 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
    # Fill in start
    dataCommand = "DATA\r\n"
    clientSocket.send(dataCommand.encode())
-   #recv4 = clientSocket.recv(1024).decode()
+   recv4 = clientSocket.recv(1024).decode()
    #print("Third Ack", recv4)
    # Fill in end
 
@@ -59,13 +59,15 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
    # Message ends with a single period.
    # Fill in start
    clientSocket.send(endmsg.encode())
+   recv5 = clientSocket.recv(1024).decode()
+
    # Fill in end
 
    # Send QUIT command and get server response.
     # Fill in start
    quitCommand="QUIT\r\n"
    clientSocket.send(quitCommand.encode())
-   #recv5 = clientSocket.recv(1024).decode()
+   recv6 = clientSocket.recv(1024).decode()
    #print("Forth Ack", recv5)
    clientSocket.close()
    # Fill in end
