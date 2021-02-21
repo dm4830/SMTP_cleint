@@ -14,7 +14,7 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
    clientSocket.connect(mail_server)
    # Fill in end
 
-   recv = clientSocket.recv(1024).decode()
+   #recv = clientSocket.recv(1024).decode()
    #print(recv)
    #if recv[:3] != '220':
    #print('220 reply not received from server.')
@@ -60,7 +60,6 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
    # Fill in start
    clientSocket.send(endmsg.encode())
    recv5 = clientSocket.recv(1024).decode()
-
    # Fill in end
 
    # Send QUIT command and get server response.
@@ -71,7 +70,6 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
    #print("Forth Ack", recv5)
    clientSocket.close()
    # Fill in end
-
 
 if __name__ == '__main__':
    smtp_client(1025, '127.0.0.1')
