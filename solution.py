@@ -33,7 +33,7 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
    fromCommand = "MAIL FROM:<dm4830@nyu.edu>\r\n"
    clientSocket.send(fromCommand.encode())
    recv2 = clientSocket.recv(1024).decode()
-   print("ACK", recv2)
+   #print("ACK", recv2)
    # Fill in end
 
    # Send RCPT TO command and print server response.
@@ -41,7 +41,7 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
    rcptCommand = "RCPT TO:<dm4830@nyu.edu>\r\n"
    clientSocket.send(rcptCommand.encode())
    recv3 = clientSocket.recv(1024).decode()
-   print("Second ACK", recv3)
+   #print("Second ACK", recv3)
    # Fill in end
 
    # Send DATA command and print server response.
@@ -49,7 +49,7 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
    dataCommand = "DATA\r\n"
    clientSocket.send(dataCommand.encode())
    recv4 = clientSocket.recv(1024).decode()
-   print("Third Ack", recv4)
+   #print("Third Ack", recv4)
    # Fill in end
 
    # Send message data.
@@ -67,7 +67,7 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
    quitCommand="QUIT\r\n"
    clientSocket.send(quitCommand.encode())
    recv5 = clientSocket.recv(1024).decode()
-   print("Forth Ack", recv5)
+   #print("Forth Ack", recv5)
    clientSocket.close()
    # Fill in end
 
